@@ -1,62 +1,47 @@
 {
   "allFiles": [
     {
+      "file": "/storage/emulated/0/Projects/MyApplication1109/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/Projects/MyApplication1109/.gitignore",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
       "file": "/storage/emulated/0/Projects/MyApplication1109/app/src/main/java/com/example/myapplication1109/CameraActivity.java",
       "selection": {
         "end": {
-          "column": 56,
-          "index": 2709,
-          "line": 65
+          "column": 36,
+          "index": 208,
+          "line": 5
         },
         "start": {
-          "column": 56,
-          "index": 2709,
-          "line": 65
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/Projects/MyApplication1109/app/src/main/java/com/example/myapplication1109/CountActivity.java",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/Projects/MyApplication1109/app/src/main/AndroidManifest.xml",
-      "selection": {
-        "end": {
-          "column": 18,
-          "index": 1921,
-          "line": 50
-        },
-        "start": {
-          "column": 18,
-          "index": 1921,
-          "line": 50
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/Projects/MyApplication1109/app/src/main/java/com/example/myapplication1109/Utility.java",
-      "selection": {
-        "end": {
-          "column": 31,
-          "index": 263,
-          "line": 8
-        },
-        "start": {
-          "column": 23,
-          "index": 231,
-          "line": 7
+          "column": 36,
+          "index": 208,
+          "line": 5
         }
       }
     }

@@ -3,6 +3,7 @@ package com.example.myapplication1109;
 import com.example.myapplication1109.R;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.annotation.Nullable;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,32 +26,21 @@ import java.io.*;
 
 public class CameraActivity extends AppCompatActivity {
     
+    int TAKE_PHOTO = 1;
+    String photoPath = "/sdcard/Download/1.png";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
 
-        int TAKE_PHOTO = 1;
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");  //调用手机拍照功能其实就是启动一个activity
         Button photo_button = (Button)findViewById(R.id.button);
         photo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                android.net.Uri imageUri;
-                String filename = "test.png"; //自定义的照片名称
-                File outputImage = new File(getExternalCacheDir(),filename);  //拍照后照片存储路径
-                try {if (outputImage.exists()){
-                    outputImage.delete();
-                }
-                    outputImage.createNewFile();
-                } catch (IOException e) {
-                    Log.e("MyApplication1109", "I got an error", e);
-                    e.printStackTrace();
-                }
                 //跳转界面到系统自带的拍照界面
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");  //调用手机拍照功能其实就是启动一个activity
                 //Uri photouri = Utility.getOutPutMediaFileUri(context)
-                String path = "/sdcard/Download/1.png";
-                File photo = new File(path);
+                File photo = new File(photoPath);
                 Uri photoUri;
                 if (Build.VERSION.SDK_INT >= 24) {
                     //图片的url
@@ -60,12 +50,8 @@ public class CameraActivity extends AppCompatActivity {
                 }
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);  //指定图片存放位置，指定后，在onActivityResult里得到的Data将为null
                 startActivityForResult(intent, TAKE_PHOTO);  //开启相机
-                ImageView camera_imageView = (ImageView) findViewById(R.id.camera_pic);
-                Log.d("MyApp", photoUri.toString());
-                Bitmap bitmap = BitmapFactory.decodeFile(path);
-                camera_imageView.setImageBitmap(bitmap);
+                }
             }
-        }
         );
 
         ImageView camera_imageView = (ImageView) findViewById(R.id.camera_pic);
@@ -118,5 +104,14 @@ public class CameraActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        if (requestCode==TAKE_PHOTO){
+            ImageView camera_imageView = (ImageView) findViewById(R.id.camera_pic);
+            Bitmap bitmap = BitmapFactory.decodeFile(photoPath);
+            camera_imageView.setImageBitmap(bitmap);
+        }
     }
 }
